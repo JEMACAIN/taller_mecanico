@@ -20,3 +20,12 @@ session_destroy();
 // Redirigir al login
 header('Location: login.php');
 exit;
+
+include_once '../config/database.php';
+include_once '../includes/functions.php';
+$sql = "SELECT COUNT(*) as total FROM usuarios";
+$result = fetchOne($sql);
+if (!$result || $result['total'] == 0) {
+    header('Location: ../index.php');
+    exit;
+}

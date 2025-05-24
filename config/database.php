@@ -1,4 +1,21 @@
 <?php
+// INSTRUCCIONES DE CONEXIÓN:
+// 1. Crea la base de datos y el usuario en MySQL si no existen:
+//    CREATE DATABASE nombre_de_tu_base_de_datos CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+//    CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'contraseña';
+//    GRANT ALL PRIVILEGES ON nombre_de_tu_base_de_datos.* TO 'usuario'@'localhost';
+//    FLUSH PRIVILEGES;
+// 2. Completa los datos de conexión abajo:
+//    define('DB_HOST', 'localhost');
+//    define('DB_USER', 'usuario');
+//    define('DB_PASS', 'contraseña');
+//    define('DB_NAME', 'nombre_de_tu_base_de_datos');
+//
+// 3. Guarda y ejecuta la instalación del sistema.
+//
+// Si ya existe la conexión y la base de datos, solo asegúrate de que los datos sean correctos.
+//
+// El instalador detectará si ya hay conexión y solo pedirá crear el usuario administrador si no existe ninguno.
 // Configuración de la base de datos
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
@@ -7,11 +24,12 @@ define('DB_NAME', 'taller_mecanico');
 
 // Conexión a la base de datos
 function getConnection() {
-    $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    $conn = @new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     
     // Verificar conexión
     if ($conn->connect_error) {
-        die("Error de conexión: " . $conn->connect_error);
+        header('Location: ../config/instrucciones_db.php');
+        exit;
     }
     
     // Establecer charset

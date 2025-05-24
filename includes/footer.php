@@ -10,7 +10,7 @@
                 <ul>
                     <li><a href="index.php">Inicio</a></li>
                     <li><a href="servicios.php">Servicios</a></li>
-                    <li><a href="productos.php">Llantas</a></li>
+                    <li><a href="productos.php?categoria=Llantas">Llantas</a></li>
                     <li><a href="promociones.php">Promociones</a></li>
                     <li><a href="nosotros.php">Nosotros</a></li>
                     <li><a href="contacto.php">Contacto</a></li>
@@ -20,10 +20,10 @@
                 <h3>Nuestros Servicios</h3>
                 <ul>
                     <li><a href="servicio.php?id=1">Cambio de Aceite</a></li>
-                    <li><a href="servicio.php?id=2">Venta de Llantas</a></li>
-                    <li><a href="servicio.php?id=3">Alineación y Balanceo</a></li>
-                    <li><a href="servicio.php?id=4">Frenos</a></li>
-                    <li><a href="servicio.php?id=5">Suspensión</a></li>
+                    <li><a href="productos.php?categoria=Llantas">Venta de Llantas</a></li>
+                    <li><a href="servicio.php?id=4">Alineación y Balanceo</a></li>
+                    <li><a href="servicio.php?id=5">Frenos</a></li>
+                    <li><a href="servicio.php?id=3">Venta e Instalación de Llantas</a></li>
                 </ul>
             </div>
             <div class="footer-contact">

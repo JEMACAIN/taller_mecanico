@@ -1,6 +1,11 @@
 <?php
-// Incluir archivo de base de datos
-include_once 'config/database.php';
+// Modificar la línea de inclusión del archivo de base de datos para usar una ruta relativa que funcione desde cualquier ubicación
+// Cambiar esta línea:
+// include_once 'config/database.php';
+
+// Por esta:
+$base_path = dirname(__FILE__) . '/../';
+include_once $base_path . 'config/database.php';
 
 // Función para obtener servicios
 function getServicios($destacados = false) {
@@ -79,6 +84,19 @@ function isLoggedIn() {
 // Función para verificar si un usuario es administrador
 function isAdmin() {
     return isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin';
+}
+
+// Función para iniciar sesión
+function login($username, $password) {
+    $sql = "SELECT * FROM usuarios WHERE username = ?";
+    $user = fetchOne($sql, [$username]);
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['user_role'] = $user['rol'];
+        return true;
+    }
+    return false;
 }
 
 // Función para sanitizar entrada

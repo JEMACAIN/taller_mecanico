@@ -1,4 +1,6 @@
 <?php
+session_start();
+try {
 // Incluir archivos de configuración y funciones
 include_once 'config/database.php';
 include_once 'includes/functions.php';
@@ -22,7 +24,7 @@ $promociones = getPromociones();
     <?php include_once 'includes/header.php'; ?>
     
     <!-- Banner Principal -->
-    <section class="banner">
+    <section class="banner" style="background-image: url('img/banner-taller.jpg'); background-size: cover; background-position: center; min-height: 400px;">
         <div class="banner-content">
             <h1>EXPERTOS EN CAMBIO DE ACEITE Y LLANTAS</h1>
             <p>Servicio rápido y profesional para tu vehículo</p>
@@ -151,3 +153,9 @@ $promociones = getPromociones();
     <?php include_once 'includes/footer.php'; ?>
 </body>
 </html>
+<?php
+} catch (Throwable $e) {
+    header('Location: config/instrucciones_db.php');
+    exit();
+}
+?>

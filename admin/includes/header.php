@@ -5,7 +5,7 @@
             $page = basename($_SERVER['PHP_SELF'], '.php');
             switch ($page) {
                 case 'index':
-                    echo 'Dashboard';
+                    echo 'Panel de Administración';
                     break;
                 case 'servicios':
                     echo 'Gestión de Servicios';
@@ -26,11 +26,12 @@
                     echo 'Configuración del Sitio';
                     break;
                 default:
-                    echo 'Panel de Administración';
+                    echo '';
             }
             ?>
         </h2>
     </div>
+
     <div class="header-right">
         <div class="user-dropdown">
             <button class="dropdown-toggle">

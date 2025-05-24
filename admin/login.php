@@ -16,6 +16,11 @@ include_once '../includes/functions.php';
 $error = '';
 $username = '';
 
+// Establecer zona horaria de las Montañas Rocosas (UTC-7)
+date_default_timezone_set('Etc/GMT+7');
+
+include_once 'includes/verifica_usuario.php';
+
 // Procesar formulario de inicio de sesión
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Obtener datos del formulario
@@ -31,6 +36,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = fetchOne($sql, [$username]);
         
         if ($user && password_verify($password, $user['password'])) {
+            // Actualizar último acceso
+            update('usuarios', ['ultimo_acceso' => date('Y-m-d H:i:s')], 'id = ?', [$user['id']]);
             // Iniciar sesión
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];

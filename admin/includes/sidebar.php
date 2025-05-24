@@ -13,7 +13,7 @@
             <li>
                 <a href="index.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">
                     <i class="icon-dashboard"></i>
-                    <span>Dashboard</span>
+                    <span>Panel de Administración</span>
                 </a>
             </li>
             <li>
