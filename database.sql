@@ -1,7 +1,3 @@
--- Crear base de datos
-CREATE DATABASE IF NOT EXISTS taller_mecanico;
-USE taller_mecanico;
-
 -- Tabla de usuarios
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
